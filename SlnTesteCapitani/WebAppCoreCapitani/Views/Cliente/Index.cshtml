@@ -1,0 +1,66 @@
+﻿        @model IEnumerable<Capitani.Domain.Entities.Cliente>
+        
+        @{
+            ViewData["Title"] = "Index";
+        }
+
+        <h1>Index</h1>
+
+        <p>
+            @Html.ActionLink("Create", "Create", new { /* id=item.PrimaryKey */ })
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EstadoCivilId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DataNascimento)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NomeParceiro)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DataNascimentoParceiro)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EstadoCivilId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataNascimento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NomeParceiro)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataNascimentoParceiro)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
