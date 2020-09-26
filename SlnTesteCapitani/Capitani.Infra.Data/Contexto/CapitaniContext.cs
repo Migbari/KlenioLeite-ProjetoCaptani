@@ -15,12 +15,12 @@ namespace Capitani.Infra.Data.Contexto
             options = new DbContextOptions<CapitaniContext>();
         }
 
-        public DbSet<Cliente> Cliente { get; set; }
-        public DbSet<EstadoCivil> EstadoCivil { get; set; }
+        public DbSet<ClienteEntityViewModel> Cliente { get; set; }
+        public DbSet<EstadoCivilEntityViewModel> EstadoCivil { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration<Cliente>(new ClienteConfiguration());
-            modelBuilder.ApplyConfiguration<EstadoCivil>(new EstadoCivilConfiguration());
+            modelBuilder.ApplyConfiguration<ClienteEntityViewModel>(new ClienteConfiguration());
+            modelBuilder.ApplyConfiguration<EstadoCivilEntityViewModel>(new EstadoCivilConfiguration());
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

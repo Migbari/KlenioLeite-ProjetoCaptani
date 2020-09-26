@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Capitani.Domain.Services
 {
-    public class EstadoCivilService : ServiceBase<EstadoCivil>, IEstadoCivilService
+    public class EstadoCivilService : ServiceBase<EstadoCivilEntityViewModel>, IEstadoCivilService
     {
         private readonly IEstadoCivilRepository _estadoCivilRepository;
         public EstadoCivilService(IEstadoCivilRepository estadoCivilRepository)
@@ -15,7 +15,7 @@ namespace Capitani.Domain.Services
             _estadoCivilRepository = estadoCivilRepository;
         }
 
-        public IEnumerable<EstadoCivil> GetByName(string name)
+        public IEnumerable<EstadoCivilEntityViewModel> GetByName(string name)
         {
             return _estadoCivilRepository.GetAll().ToList().Where(e => e.Descricao.Contains(name));
         }

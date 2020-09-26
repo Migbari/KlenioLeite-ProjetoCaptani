@@ -6,14 +6,14 @@ using System.Linq;
 
 namespace Capitani.Infra.Data.Repositories
 {
-    public class ClienteRepository : RepositoryBase<Cliente>, IClienteRepository
+    public class ClienteRepository : RepositoryBase<ClienteEntityViewModel>, IClienteRepository
     {
-        public IEnumerable<Cliente> GetByName(string name)
+        public IEnumerable<ClienteEntityViewModel> GetByName(string name)
         {
             return Db.Cliente.ToList().Where(e => e.Nome.Contains(name));
         }
 
-        public IEnumerable<Cliente> GetByPartnerName(string name)
+        public IEnumerable<ClienteEntityViewModel> GetByPartnerName(string name)
         {
             return Db.Cliente.ToList().Where(e => e.NomeParceiro.Contains(name));
         }

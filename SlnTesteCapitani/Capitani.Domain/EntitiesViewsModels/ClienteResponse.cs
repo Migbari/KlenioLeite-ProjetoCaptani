@@ -13,7 +13,7 @@ namespace Capitani.Domain.Entities
 		[JsonProperty("nome")]
 		public string Nome { get; set; }
 		[JsonProperty("estadoCivil")]
-		public EstadoCivil EstadoCivil { get; set; }
+		public EstadoCivilEntityViewModel EstadoCivil { get; set; }
 		[JsonProperty("estadoCivilId")]
 		public int EstadoCivilId { get; set; }
 		[JsonProperty("dataNascimento")]

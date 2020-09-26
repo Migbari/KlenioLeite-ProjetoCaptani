@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace Capitani.Infra.Data.Repositories
 {
-    public class EstadoCivilRepository : RepositoryBase<EstadoCivil>, IEstadoCivilRepository
+    public class EstadoCivilRepository : RepositoryBase<EstadoCivilEntityViewModel>, IEstadoCivilRepository
     {
-        public IEnumerable<EstadoCivil> GetByName(string name)
+        public IEnumerable<EstadoCivilEntityViewModel> GetByName(string name)
         {
             return Db.EstadoCivil.ToList().Where(e => e.Descricao.Contains(name));
         }

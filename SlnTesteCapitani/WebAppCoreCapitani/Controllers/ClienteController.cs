@@ -21,7 +21,7 @@ namespace WebAppCoreCapitani.Controllers
         //    _mapper = mapper;
         //}
 
-        private async Task<IEnumerable<Cliente>> RetornarDados()
+        private async Task<IEnumerable<ClienteEntityViewModel>> RetornarDados()
         {
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:64829");
@@ -30,13 +30,15 @@ namespace WebAppCoreCapitani.Controllers
             HttpResponseMessage resp = await client.GetAsync("/v1/Cliente");
 
             var dados = await resp.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<IEnumerable<Cliente>>(dados); ;
+            var objIEnumerable = JsonConvert.DeserializeObject<IEnumerable<ClienteEntityViewModel>>(dados);
+
+            return objIEnumerable.ToList();
         }
 
         // GET: ClienteController
         public ActionResult Index()
         {
-            //Funcionando até aqui, mas preciso, talvez, usar o auto mapping para converter em IEnumerable<Cliente>
+            //Funci onando até aqui, mas preciso, talvez, usar o auto mapping para converter em IEnumerable<Cliente>
             //para enviar para View
             return View(RetornarDados());
         }

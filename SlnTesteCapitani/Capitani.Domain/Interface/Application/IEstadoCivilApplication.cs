@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace Capitani.Domain.Interface.Application
 {
-    public interface IEstadoCivilApplication : IApplicationBase<EstadoCivil>
+    public interface IEstadoCivilApplication : IApplicationBase<EstadoCivilEntityViewModel>
     {
-        IEnumerable<EstadoCivil> GetByName(string name);
+        IEnumerable<EstadoCivilEntityViewModel> GetByName(string name);
     }
 }
