@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace Capitani.Domain.Interface.Repository
 {
-    public interface IClienteRepository : IRepositoryBase<Cliente>
+    public interface IClienteRepository : IRepositoryBase<ClienteEntityViewModel>
     {
-        IEnumerable<Cliente> GetByName(string name);
-        IEnumerable<Cliente> GetByPartnerName(string name);
+        IEnumerable<ClienteEntityViewModel> GetByName(string name);
+        IEnumerable<ClienteEntityViewModel> GetByPartnerName(string name);
         void RemoveById(int id);
     }
 }

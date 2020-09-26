@@ -21,7 +21,7 @@ namespace WebAppCoreCapitani.Controllers
         //    _mapper = mapper;
         //}
 
-        private async Task<IEnumerable<Cliente>> RetornarDados()
+        private async Task<IEnumerable<ClienteEntityViewModel>> RetornarDados()
         {
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:64829");
@@ -30,36 +30,17 @@ namespace WebAppCoreCapitani.Controllers
             HttpResponseMessage resp = await client.GetAsync("/v1/Cliente");
 
             var dados = await resp.Content.ReadAsStringAsync();
-            var verifica = JsonConvert.DeserializeObject<IEnumerable<Cliente>>(dados);
-            return verifica;
+            var objIEnumerable = JsonConvert.DeserializeObject<IEnumerable<ClienteEntityViewModel>>(dados);
+
+            return objIEnumerable.ToList();
         }
 
         // GET: ClienteController
-        public Task<IEnumerable<Cliente>> Index()
+        public ActionResult Index()
         {
-            return RetornarDados();
-
-            // JsonConvert.DeserializeObject(); 
-
-            //ViewBag.ListaEstadoCivil = _estadoCivilApplication.GetAll();
-
-            //IEnumerable<Cliente> clientes = _clienteApplication.GetAll();
-            //List<ClienteViewModel> clientesViewModel = new List<ClienteViewModel>();
-            //foreach (Cliente cliente in clientes)
-            //{
-            //    ClienteViewModel clienteViewModel = new ClienteViewModel();
-            //    clienteViewModel.Id = cliente.Id;
-            //    clienteViewModel.Nome = cliente.Nome;
-            //    clienteViewModel.EstadoCivilId = cliente.EstadoCivilId;
-            //    clienteViewModel.EstadoCivil = cliente.EstadoCivil;
-            //    clienteViewModel.DataNascimento = cliente.DataNascimento;
-            //    clienteViewModel.NomeParceiro = cliente.NomeParceiro;
-            //    clienteViewModel.DataNascimentoParceiro = cliente.DataNascimentoParceiro;
-            //    clientesViewModel.Add(clienteViewModel);
-            //}
-
-            //return View(clientesViewModel);
-            //return View(retorno);
+            //Funci onando até aqui, mas preciso, talvez, usar o auto mapping para converter em IEnumerable<Cliente>
+            //para enviar para View
+            return View(RetornarDados());
         }
 
         // GET: ClienteController/Details/5

@@ -5,7 +5,7 @@ namespace Capitani.Domain.Interface.Repository
 {
     public interface ICapitaniContext
     {
-        DbSet<Cliente> Cliente { get; set; }
-        DbSet<EstadoCivil> EstadoCivil { get; set; }
+        DbSet<ClienteEntityViewModel> Cliente { get; set; }
+        DbSet<EstadoCivilEntityViewModel> EstadoCivil { get; set; }
     }
 }

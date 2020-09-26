@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Capitani.Application
 {
-    public class EstadoCivilApplication : ApplicationBase<EstadoCivil>, IEstadoCivilApplication
+    public class EstadoCivilApplication : ApplicationBase<EstadoCivilEntityViewModel>, IEstadoCivilApplication
     {
         private readonly IEstadoCivilService _estadoCivilService;
         public EstadoCivilApplication(IEstadoCivilService estadoCivilService)
@@ -15,7 +15,7 @@ namespace Capitani.Application
         {
             _estadoCivilService = estadoCivilService;
         }
-        public IEnumerable<EstadoCivil> GetByName(string name)
+        public IEnumerable<EstadoCivilEntityViewModel> GetByName(string name)
         {
             return _estadoCivilService.GetAll().ToList().Where(e => e.Descricao.Contains(name));
         }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Capitani.Domain.Services
 {
-    public class ClienteService : ServiceBase<Cliente>, IClienteService
+    public class ClienteService : ServiceBase<ClienteEntityViewModel>, IClienteService
     {
         private readonly IClienteRepository _clienteRepository;
         public ClienteService(IClienteRepository clienteRepository)
@@ -17,12 +17,12 @@ namespace Capitani.Domain.Services
             _clienteRepository = clienteRepository;
         }
 
-        public IEnumerable<Cliente> GetByName(string name)
+        public IEnumerable<ClienteEntityViewModel> GetByName(string name)
         {
             return _clienteRepository.GetAll().ToList().Where(p => p.Nome.StartsWith(name));
         }
 
-        public IEnumerable<Cliente> GetByPartnerName(string name)
+        public IEnumerable<ClienteEntityViewModel> GetByPartnerName(string name)
         {
             return _clienteRepository.GetAll().ToList().Where(p => p.NomeParceiro.StartsWith(name));
         }

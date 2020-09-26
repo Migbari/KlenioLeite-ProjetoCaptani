@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿//using AutoMapper;
 using Capitani.Domain.Entities;
 using System.Collections.Generic;
 

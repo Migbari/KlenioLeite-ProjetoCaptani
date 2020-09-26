@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Capitani.Infra.Data.EntityTypeConfiguration
 {
-    public class ClienteConfiguration : IEntityTypeConfiguration<Cliente>
+    public class ClienteConfiguration : IEntityTypeConfiguration<ClienteEntityViewModel>
     {
-        public void Configure(EntityTypeBuilder<Cliente> builder)
+        public void Configure(EntityTypeBuilder<ClienteEntityViewModel> builder)
         {
             builder.Property(e => e.Nome)
                 .IsRequired()

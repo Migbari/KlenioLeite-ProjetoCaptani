@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Capitani.Application
 {
-    public class ClienteApplication : ApplicationBase<Cliente>, IClienteApplication
+    public class ClienteApplication : ApplicationBase<ClienteEntityViewModel>, IClienteApplication
     {
         private readonly IClienteService _clienteService;
         public ClienteApplication(IClienteService clienteService)
@@ -15,11 +15,11 @@ namespace Capitani.Application
         {
             _clienteService = clienteService;
         }
-        public IEnumerable<Cliente> GetByName(string name)
+        public IEnumerable<ClienteEntityViewModel> GetByName(string name)
         {
             return _clienteService.GetAll().ToList().Where(e => e.Nome.Contains(name));
         }
-        public IEnumerable<Cliente> GetByPartnerName(string name)
+        public IEnumerable<ClienteEntityViewModel> GetByPartnerName(string name)
         {
             return _clienteService.GetAll().ToList().Where(e => e.NomeParceiro.Contains(name));
         }

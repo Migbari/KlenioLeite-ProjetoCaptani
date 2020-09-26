@@ -2,7 +2,7 @@
 
 namespace Capitani.Domain.Entities
 {
-    public class EstadoCivil
+    public class EstadoCivilEntityViewModel
     {
         [Key]
         public int Id { get; set; }
