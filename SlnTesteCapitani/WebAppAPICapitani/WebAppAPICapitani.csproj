@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -10,13 +10,13 @@
 
   <ItemGroup>
     <Reference Include="Capitani.Application">
-      <HintPath>..\Packages\netcoreapp3.1\Capitani.Application.dll</HintPath>
+      <HintPath>..\Capitani.Application\obj\Debug\netcoreapp3.1\Capitani.Application.dll</HintPath>
     </Reference>
     <Reference Include="Capitani.Domain">
-      <HintPath>..\Packages\netcoreapp3.1\Capitani.Domain.dll</HintPath>
+      <HintPath>..\Capitani.Domain\obj\Debug\netcoreapp3.1\Capitani.Domain.dll</HintPath>
     </Reference>
     <Reference Include="Capitani.Infra.Data">
-      <HintPath>..\Packages\netcoreapp3.1\Capitani.Infra.Data.dll</HintPath>
+      <HintPath>..\Capitani.Infra.Data\obj\Debug\netcoreapp3.1\Capitani.Infra.Data.dll</HintPath>
     </Reference>
   </ItemGroup>
 
